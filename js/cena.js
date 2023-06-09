@@ -38,36 +38,33 @@ var imageUrls = [
 
 // Crear y agregar las imágenes al contenedor de la galería
 imageUrls.forEach(function (imageUrl) {
-  var img = document.createElement('img');
-  img.src = imageUrl;
-  img.alt = '';
-  img.className = 'img-galeria';
-  galeriaContainer.appendChild(img);
-});
-
-// Agregar los elementos al DOM
-galleryContainer.appendChild(subtitulo);
-galleryContainer.appendChild(galeriaContainer);
-gallerySection.appendChild(galleryContainer);
-document.body.appendChild(gallerySection);
-
-// Evento para mostrar/ocultar la imagen ampliada
-var imagenLightSection = document.querySelector('.imagen-light');
-var closeButton = imagenLightSection.querySelector('.close');
-
-galeriaContainer.addEventListener('click', function (event) {
-  var targetImg = event.target;
+    var img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = '';
+    img.className = 'img-galeria';
+    galeriaContainer.appendChild(img);
+  });
   
-  if (targetImg.classList.contains('img-galeria')) {
-    var enlargedImage = document.querySelector('.agregar-imagen');
-    enlargedImage.src = targetImg.src;
-    imagenLightSection.style.display = 'flex';
-  }
-});
-
-closeButton.addEventListener('click', function () {
-  imagenLightSection.style.display = 'none';
-});
-
-
+  // Agregar los elementos al DOM
+  galleryContainer.appendChild(subtitulo);
+  galleryContainer.appendChild(galeriaContainer);
+  gallerySection.appendChild(galleryContainer);
+  document.body.appendChild(gallerySection);
   
+  // Evento para mostrar/ocultar la imagen ampliada
+  var imagenLightSection = document.querySelector('.imagen-light');
+  var closeButton = imagenLightSection.querySelector('.close');
+  
+  galeriaContainer.addEventListener('click', function (event) {
+    var targetImg = event.target;
+    
+    if (targetImg.classList.contains('img-galeria')) {
+      var enlargedImage = document.querySelector('.agregar-imagen');
+      enlargedImage.src = targetImg.src;
+      imagenLightSection.style.display = 'flex';
+    }
+  });
+  
+  closeButton.addEventListener('click', function () {
+    imagenLightSection.style.display = 'none';
+  });
